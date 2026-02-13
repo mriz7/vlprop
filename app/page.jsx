@@ -60,6 +60,22 @@ export default function ValentineProposal() {
       caption: "Every moment with you is worth celebrating", 
       fullStory: "You make ordinary days feel extraordinary. Let's explore the world more together" 
     },
+    // --- REPLACED TRAVEL WITH SILLY MOMENTS ---
+    { 
+      id: 6, 
+      image: "/memories/silly.jpeg",  // <--- Name your photo 'funny.jpg'
+      date: "Our Silly Side", 
+      caption: "Laughing until our stomachs hurt", 
+      fullStory: "I love that we can be our complete selves around each other." 
+    },
+    // --- MEMORY 7 (KEPT THE SAME) ---
+    { 
+      id: 7, 
+      image: "/memories/us.jpeg",      
+      date: "Just Us", 
+      caption: "Simply being together is all I need", 
+      fullStory: "It's the little moments and the quiet times staring at you that mean the most." 
+    },
   ];
 
   const questions = [
@@ -82,7 +98,6 @@ I love you more than words could ever express.
 Forever yours,
 Your Valentine Riyaz💕`;
 
-  // Floating hearts data
   const [floatingHearts] = useState(() => 
     Array.from({ length: 15 }, (_, i) => ({
       id: i,
@@ -131,7 +146,6 @@ Your Valentine Riyaz💕`;
   const handleAnswer = (questionId, answer) => {
     setAnswers(prev => ({ ...prev, [questionId]: answer }));
     setTimeout(() => {
-      // Logic to determine if we go to next memory or love letter
       if (currentMemoryIndex < memories.length - 1) {
         setCurrentMemoryIndex(prev => prev + 1);
         setStage('memory');
@@ -143,7 +157,6 @@ Your Valentine Riyaz💕`;
 
   const nextFromMemory = () => {
     setShowMemoryDetail(false);
-    // Check if there is a question attached to this memory step
     const nextQuestion = questions.find(q => q.afterMemory === currentMemoryIndex + 1);
     
     if (nextQuestion) {
@@ -558,7 +571,7 @@ Your Valentine Riyaz💕`;
             </motion.div>
           )}
 
-          {/* Question Screen - RE-ADDED & FIXED */}
+          {/* Question Screen */}
           {stage === 'question' && (() => {
             const q = questions.find(q => q.afterMemory === currentMemoryIndex + 1);
             if (!q) return null;
@@ -669,7 +682,6 @@ Your Valentine Riyaz💕`;
                 To My Forever Love
               </h2>
               
-              {/* Added Answers Section Back */}
               {Object.keys(answers).length > 0 && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
