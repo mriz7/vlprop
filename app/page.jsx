@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from ''framer-motion';
 import { Heart, Sparkles, Music, VolumeX, Volume2, ChevronRight, MessageCircleHeart } from 'lucide-react';
 
 export default function ValentineProposal() {
